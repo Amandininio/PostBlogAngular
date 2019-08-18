@@ -1,3 +1,9 @@
+# Launch project 🚀
+  -> Download or clone the project
+  Open terminal inside PostBlogAngular Directory
+  -> Run npm install
+  -> run ng serve -o
+
 # PostBlogAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
