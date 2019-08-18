@@ -1,8 +1,8 @@
 # Launch project 🚀
   ## -> Download or clone the project
   ## Open terminal inside PostBlogAngular Directory
-  ## -> Run npm install
-  ## -> run ng serve -o
+  ## -> Run 'npm install'
+  ## -> run 'ng serve -o'
 
 # PostBlogAngular
 
