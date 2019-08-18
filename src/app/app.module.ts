@@ -10,11 +10,17 @@ import { PostListItemsComponent } from './post-list-items/post-list-items.compon
 import { PostFormComponent } from './post-list-items/post-form/post-form.component';
 import { SinglePostComponent } from './post-list-items/single-post/single-post.component';
 import { PostsService } from './services/posts.service';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'posts', component: PostListItemsComponent},
-  { path: 'posts/:id', component: SinglePostComponent},
-  { path: 'newpost', component: PostFormComponent},
+  { path: 'posts', canActivate: [AuthGuardService], component: PostListItemsComponent},
+  { path: 'posts/:id', canActivate: [AuthGuardService], component: SinglePostComponent},
+  { path: 'newpost', canActivate: [AuthGuardService], component: PostFormComponent},
+  { path: 'signup', component: SignupComponent},
+  { path: 'signin', component: SigninComponent},
   { path: '', redirectTo: 'posts', pathMatch: 'full'},
   { path: '**', redirectTo: 'posts'}
 ];
@@ -25,7 +31,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     PostListItemsComponent,
     PostFormComponent,
-    SinglePostComponent
+    SinglePostComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    PostsService
+    PostsService,
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
