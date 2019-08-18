@@ -2,7 +2,6 @@
     <div class="col-xs-12">
         <h2>Postes</h2>
         <div class="list-group">
-            <!--TODO: Add Button link Single View-->
             <div    class="list-group-item"
                     *ngFor="let post of posts; let i = index"
                     [ngStyle]="{backgroundColor: getColor(post), color: getColorText(post)}">
@@ -23,5 +22,6 @@
                     <button class="btn btn-danger" (click)="onAction(post, (-1))">I Hate it !!</button>
             </div>
         </div>
+       <a routerLink="/newpost" class="btn btn-primary btn-lg" role="button"> Nouveau Post</a>
     </div>
 </div>
